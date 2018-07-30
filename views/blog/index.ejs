@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+<% blogs.forEach(function(blog){ %>
+
+    <div class="blogContent">
+        
+    <div class="ui huge header">
+        <%=blog.title%>
+    </div>
+    
+    <img width=25% class="img-thumbnail pull-right" src="<%=blog.image %>">
+   
+    
+    <% if(blogs.length>1) { %>
+        
+        <% if(blog.url=="" || page=="show") var linkIt=blog._id; else var linkIt=blog.url; %>
+        
+        <p><%-blog.body.substring(0,700)%>...</p>
+        <a href=/<%=linkIt%>><button class="ui button right floated">Read More</button></a>
+        <p style="height:40px"></p>
+        
+    <% } else { %>
+    
+        <p><%-blog.body%></p>
+        <a href="blog/<%=blog._id%>/edit"><button style="margin-left: 10px" class="ui blue basic button right floated">Edit</button></a>
+        <a href="blog/<%=blog._id%>/delete"><button class="ui red basic button right floated red">Delete</button></a>
+        <p style="height:40px"></p>
+        
+    <% } %>
+    
+    </div>
+        
+<% }); %>
+
+<% include ../partials/footer %>

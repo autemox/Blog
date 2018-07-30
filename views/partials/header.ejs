@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>My Application</title>
+        
+        <!-- JQUERY -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        <!-- FONT AWESOME -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        
+        <!-- CUSTOM STYLESHEET -->
+        <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-default"> 
+         <div class="container"> 
+              <div class="navbar-header"> 
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false"> 
+                 <span class="sr-only">Toggle Navigation</span> 
+                 <span class="icon-bar"></span> 
+                 <span class="icon-bar"></span> 
+                 <span class="icon-bar"></span> 
+                </button> 
+                
+                <a href="#" class="navbar-brand"><i class="paper plane icon"></i> myApp</a> 
+            </div> 
+            <div id=collapse-1 class="collapse navbar-collapse">
+                <ul class="nav navbar-nav"> 
+                    <li><a href="/">Home</a></li>  <!--  class="active" -->
+                    <% if(currentUser) { %>
+                        <li><a href="/blog/new">New Post</a></li> 
+                    <% } %>
+                    <li><a href="/blog">View All</a></li> 
+                </ul> 
+                <ul class="nav navbar-nav navbar-right"> 
+                    <% if(!currentUser) { %>
+                        <li><a href="/register">Sign Up</a></li> 
+                        <li><a href="/login">Log In</a></li> 
+                    <% } else { %>
+                        <li><a href="#">Logged In As: <%= currentUser.username %></a></li>
+                        <li><a href="/logout">Log Out</a></li>
+                    <% } %>
+                </ul> 
+            </div>
+         </div> 
+        </nav>
+        
+        <div class=container>
+            <% if(danger && danger.length>0) { %> 
+                <div class="alert alert-danger" role="alert">
+                  <i class="fas fa-times-circle"></i> <%=danger%>
+                </div>
+            <% } %>
+            <% if(success && success.length>0) { %> 
+                <div class="alert alert-success" role="alert">
+                  <strong><i class="fas fa-check-circle"></i></strong> <%=success%> 
+                </div>
+            <% } %>
+            <% if(info && info.length>0) { %> 
+                <div class="alert alert-info" role="alert">
+                  <strong><i class="fas fa-info-circle"></i></strong> <%=info%> 
+                </div>
+            <% } %>
+            <% if(warning && warning.length>0) { %> 
+                <div class="alert alert-warning" role="alert">
+                  <strong><i class="fas fa-exclamation-circle"></i></strong> <%=warning%> 
+                </div>
+            <% } %>
+        </div>
+
+        <div class="container" id="primaryContainer">
+            <div class="row">
+                <div class="col-lg-12">
+
+        
+        

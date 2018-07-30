@@ -1,0 +1,38 @@
+<% include ../partials/header %>
+
+<div class="ui huge header">New Page</div>
+
+<form action="/blog" method="POST">
+
+    <div class=container>
+        <div class=row>
+            <div class="col-lg-3 col-med-2 col-sm-1 col-xs-0"></div>
+            <div class="col-lg-6 col-med-8 col-sm-10 col-xs-12">
+            
+            
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="blog[title]" placeholder="title">
+                </div>
+                <div class="form-group">
+                    <label>Image</label>
+                    <input type="text" class="form-control" name="blog[image]" placeholder="image url">
+                </div>
+                <div class="form-group">
+                    <label>URL</label>
+                    <input type="text" class="form-control" name="blog[url]" placeholder="url">
+                </div>
+                <div class="form-group">
+                    <label>Blog Content</label>
+                    <textarea class="form-control" rows=15 name="blog[body]"></textarea>
+                </div>
+                
+                <center><input class="btn btn-primary center" type="submit"></center>
+           
+            </div>
+            <div class="col-lg-3 col-med-2 col-sm-1 col-xs-0"></div>
+        </div>
+    </div>
+</form>
+
+<% include ../partials/footer %>
